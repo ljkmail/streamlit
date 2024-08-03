@@ -99,7 +99,7 @@ if run:
     
     #%% 오늘 현재시간까지의 시간 강우자료 불러오기
 
-    key2 = st.secrets["apihub_password "]
+    key2 = st.secrets["apihub_password"]
 
     tm1 = datetime.today().strftime('%Y%m%d0000')
     tm2 = datetime.today().strftime('%Y%m%d%H00')
