@@ -12,22 +12,6 @@ import keyring
 # 제주 184, 서귀포 189, 성산 188, 고산 185
 
 dic_static = dict(gw = [95534, 95535, 95537, 95536], rain = [184, 189, 188, 185])
-#%% keyring
-keyring.set_password(
-    service_name = "apis.data.go.kr", 
-    username = "ljkmail4", 
-    password = "0t3eQ20DNg7U9+IcznP4R0jrLlOHQVtGAbmM1WlDdNTRqdpuDcmQpgz5s8cr/24U1F48RT0jgcVTw7kGoCPyAg=="
-)
-keyring.set_password(
-    service_name = "apihub.kma.go.kr",
-username = "ljkmail4",
-password = "_NL4EYPlSCOS-BGD5VgjvQ",
-)
-keyring.set_password(
-    service_name = "www.gims.go.kr",
-username = "ljkmail4",
-password = 'L0eM%2BBjtmlHYcF5I5lOvfJ%2F0TBcPs11GMO1P0ENzjkoPaJQMrx3pVqPQ%2FXNBWYBQ'
-)
 
 # %% streamlit
 import streamlit as st
