@@ -5,7 +5,6 @@
 
 # 분석할 지하수관측소 강우강측소 선정
 import pandas as pd
-import keyring
 # 지하수위 관측소(관측소코드)
 # 제주노형 95534, 제주동홍 95535, 제주조천 95537, 제주한경 95536
 # 강우(asos) 관측소(지점코드)
@@ -62,7 +61,7 @@ if run:
 
     df_rain_future = pd.DataFrame()
 
-    key1 = keyring.get_password("apis.data.go.kr", "ljkmail4")
+    key1 = st.secrets["apis_password"]
     today = datetime.today().strftime("%Y%m%d")
 
     for i in tqdm(range(0, len(dic_nx_ny_rain)), desc='강우 예측자료 읽는중'):
@@ -100,7 +99,7 @@ if run:
     
     #%% 오늘 현재시간까지의 시간 강우자료 불러오기
 
-    key2 = keyring.get_password("apihub.kma.go.kr", "ljkmail4")
+    key2 = st.secrets["apis_password"]
 
     tm1 = datetime.today().strftime('%Y%m%d0000')
     tm2 = datetime.today().strftime('%Y%m%d%H00')
@@ -143,7 +142,7 @@ if run:
     #%% 과거~어제까지 일 강우자료 불러오기
     from datetime import timedelta
 
-    key2 = keyring.get_password("apihub.kma.go.kr", "ljkmail4")
+    key2 = st.secrets["apihub_password"]
     url_rain_day = 'https://apihub.kma.go.kr/api/typ01/url/kma_sfcdd3.php'
 
     # 1995년부터 2024.5.31까지 자료 다운로드
@@ -238,7 +237,7 @@ if run:
                                 end = datetime.today())
     df_gw_current = pd.DataFrame({'YMD' : df_gw_current})
 
-    key_gw = keyring.get_password("www.gims.go.kr", "ljkmail4")
+    key_gw = st.secrets["gims_password"]
 
     begindate = (df_gw_past3['YMD'].max() + timedelta(days=1)).strftime('%Y%m%d')
     enddate = datetime.today().strftime('%Y%m%d')
